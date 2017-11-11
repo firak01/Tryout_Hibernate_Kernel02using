@@ -9,7 +9,7 @@ import org.hibernate.Query;
 import debug.thm.persistence.hibernate.HibernateContextProviderAssociationOneToOneWithTableXXX;
 import debug.thm.persistence.model.association002.AssociationTester;
 import basic.zBasic.ExceptionZZZ;
-import basic.zBasic.persistence.GeneralDaoZZZ;
+import basic.zBasic.persistence.dao.GeneralDaoZZZ;
 public class AssociationTesterDao extends GeneralDaoZZZ<AssociationTester> {
 	private static final long serialVersionUID = 1L;
 

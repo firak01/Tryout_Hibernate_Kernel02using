@@ -7,7 +7,7 @@ import java.util.Map;
 import org.hibernate.Query;
 
 import basic.zBasic.ExceptionZZZ;
-import basic.zBasic.persistence.GeneralDaoZZZ;
+import basic.zBasic.persistence.dao.GeneralDaoZZZ;
 import debug.thm.persistence.hibernate.HibernateContextProviderAssociationOneToManyWithTableXXX;
 import debug.thm.persistence.model.association003.AssociationTester;
 public class AssociationTesterDao extends GeneralDaoZZZ<AssociationTester> {
