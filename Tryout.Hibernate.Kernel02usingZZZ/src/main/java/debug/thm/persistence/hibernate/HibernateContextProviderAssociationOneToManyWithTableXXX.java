@@ -5,7 +5,7 @@ import org.hibernate.cfg.Configuration;
 import org.hibernate.internal.SessionFactoryImpl;
 
 import basic.zBasic.ExceptionZZZ;
-import basic.zBasic.persistence.HibernateContextProviderZZZ;
+import basic.zBasic.persistence.hibernate.HibernateContextProviderZZZ;
 import basic.zKernel.KernelZZZ;
 import debug.thm.persistence.model.association003.AssociationTargetTesterAutoKey;
 import debug.thm.persistence.model.association003.AssociationTester;
