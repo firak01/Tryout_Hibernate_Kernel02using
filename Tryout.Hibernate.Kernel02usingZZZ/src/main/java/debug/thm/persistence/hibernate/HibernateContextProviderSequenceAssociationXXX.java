@@ -36,6 +36,7 @@ import basic.zBasic.util.datatype.string.StringZZZ;
 import basic.zKernel.KernelUseObjectZZZ;
 import basic.zKernel.KernelZZZ;
 
+/**TODO GOON 20171206: Umstellen auf einen HibernateConfigurationProvider */
 public class HibernateContextProviderSequenceAssociationXXX extends HibernateContextProviderZZZ{
 	
 	

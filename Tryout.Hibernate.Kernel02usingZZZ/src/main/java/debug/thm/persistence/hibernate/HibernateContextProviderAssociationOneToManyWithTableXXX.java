@@ -10,6 +10,7 @@ import basic.zKernel.KernelZZZ;
 import debug.thm.persistence.model.association003.AssociationTargetTesterAutoKey;
 import debug.thm.persistence.model.association003.AssociationTester;
 
+/**TODO GOON 20171206: Umstellen auf einen HibernateConfigurationProvider */
 public class HibernateContextProviderAssociationOneToManyWithTableXXX extends HibernateContextProviderZZZ{
 	
 	

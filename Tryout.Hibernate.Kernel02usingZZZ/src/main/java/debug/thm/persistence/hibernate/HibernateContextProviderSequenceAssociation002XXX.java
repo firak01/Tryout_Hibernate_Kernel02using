@@ -12,7 +12,7 @@ import basic.zKernel.KernelZZZ;
 //import debug.thm.persistence.model.association001.AssociationTester;
 import debug.thm.persistence.model.sequence002.SequenceTester;
 
-
+/**TODO GOON 20171206: Umstellen auf einen HibernateConfigurationProvider */
 public class HibernateContextProviderSequenceAssociation002XXX extends HibernateContextProviderZZZ{
 	
 	
