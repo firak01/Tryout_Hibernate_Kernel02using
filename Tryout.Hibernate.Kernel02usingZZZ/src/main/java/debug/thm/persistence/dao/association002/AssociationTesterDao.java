@@ -10,6 +10,7 @@ import debug.thm.persistence.hibernate.HibernateContextProviderAssociationOneToO
 import debug.thm.persistence.model.association002.AssociationTester;
 import basic.zBasic.ExceptionZZZ;
 import basic.zBasic.persistence.dao.GeneralDaoZZZ;
+import basic.zBasic.persistence.interfaces.IHibernateContextProviderZZZ;
 public class AssociationTesterDao extends GeneralDaoZZZ<AssociationTester> {
 	private static final long serialVersionUID = 1L;
 
@@ -18,15 +19,19 @@ public class AssociationTesterDao extends GeneralDaoZZZ<AssociationTester> {
 		super();
 		this.installLoger( AssociationTester.class);
 	}
-	public AssociationTesterDao(HibernateContextProviderAssociationOneToOneWithTableXXX objContextHibernate) throws ExceptionZZZ{
+
+	//public AssociationTesterDao(HibernateContextProviderAssociationOneToOneWithTableXXX objContextHibernate) throws ExceptionZZZ{
+	public AssociationTesterDao(IHibernateContextProviderZZZ objContextHibernate) throws ExceptionZZZ{
 		super(objContextHibernate);		
 		this.installLoger(AssociationTester.class);
 	}
-	public AssociationTesterDao(HibernateContextProviderAssociationOneToOneWithTableXXX objContextHibernate, String sFlagControl) throws ExceptionZZZ{
+	//public AssociationTesterDao(HibernateContextProviderAssociationOneToOneWithTableXXX objContextHibernate, String sFlagControl) throws ExceptionZZZ{
+	public AssociationTesterDao(IHibernateContextProviderZZZ objContextHibernate, String sFlagControl) throws ExceptionZZZ{
 		super(objContextHibernate, sFlagControl);
 		this.installLoger(AssociationTester.class);
 	}
-	public AssociationTesterDao(HibernateContextProviderAssociationOneToOneWithTableXXX objContextHibernate, String[] saFlagControl) throws ExceptionZZZ{
+	//public AssociationTesterDao(HibernateContextProviderAssociationOneToOneWithTableXXX objContextHibernate, String[] saFlagControl) throws ExceptionZZZ{
+	public AssociationTesterDao(IHibernateContextProviderZZZ objContextHibernate, String[] saFlagControl) throws ExceptionZZZ{
 		super(objContextHibernate, saFlagControl);
 		this.installLoger(AssociationTester.class);
 	}

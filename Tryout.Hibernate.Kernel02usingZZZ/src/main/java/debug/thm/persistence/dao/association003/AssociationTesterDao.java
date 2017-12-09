@@ -8,6 +8,7 @@ import org.hibernate.Query;
 
 import basic.zBasic.ExceptionZZZ;
 import basic.zBasic.persistence.dao.GeneralDaoZZZ;
+import basic.zBasic.persistence.interfaces.IHibernateContextProviderZZZ;
 import debug.thm.persistence.hibernate.HibernateContextProviderAssociationOneToManyWithTableXXX;
 import debug.thm.persistence.model.association003.AssociationTester;
 public class AssociationTesterDao extends GeneralDaoZZZ<AssociationTester> {
@@ -18,15 +19,18 @@ public class AssociationTesterDao extends GeneralDaoZZZ<AssociationTester> {
 		super();
 		this.installLoger( AssociationTester.class);
 	}
-	public AssociationTesterDao(HibernateContextProviderAssociationOneToManyWithTableXXX objContextHibernate) throws ExceptionZZZ{
+	//public AssociationTesterDao(HibernateContextProviderAssociationOneToManyWithTableXXX objContextHibernate) throws ExceptionZZZ{
+	public AssociationTesterDao(IHibernateContextProviderZZZ objContextHibernate) throws ExceptionZZZ{
 		super(objContextHibernate);		
 		this.installLoger(AssociationTester.class);
 	}
-	public AssociationTesterDao(HibernateContextProviderAssociationOneToManyWithTableXXX objContextHibernate, String sFlagControl) throws ExceptionZZZ{
+	//public AssociationTesterDao(HibernateContextProviderAssociationOneToManyWithTableXXX objContextHibernate, String sFlagControl) throws ExceptionZZZ{
+	public AssociationTesterDao(IHibernateContextProviderZZZ objContextHibernate, String sFlagControl) throws ExceptionZZZ{
 		super(objContextHibernate, sFlagControl);
 		this.installLoger(AssociationTester.class);
 	}
-	public AssociationTesterDao(HibernateContextProviderAssociationOneToManyWithTableXXX objContextHibernate, String[] saFlagControl) throws ExceptionZZZ{
+	//public AssociationTesterDao(HibernateContextProviderAssociationOneToManyWithTableXXX objContextHibernate, String[] saFlagControl) throws ExceptionZZZ{
+	public AssociationTesterDao(IHibernateContextProviderZZZ objContextHibernate, String[] saFlagControl) throws ExceptionZZZ{
 		super(objContextHibernate, saFlagControl);
 		this.installLoger(AssociationTester.class);
 	}
