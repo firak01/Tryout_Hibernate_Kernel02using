@@ -31,13 +31,14 @@ import basic.zBasic.ObjectZZZ;
 import basic.zBasic.ReflectCodeZZZ;
 import basic.zBasic.persistence.SQLiteUtilZZZ;
 import basic.zBasic.persistence.hibernate.HibernateContextProviderZZZ;
+import basic.zBasic.persistence.interfaces.IHibernateConfigurationProviderZZZ;
 import basic.zBasic.util.abstractList.HashMapExtendedZZZ;
 import basic.zBasic.util.datatype.string.StringZZZ;
 import basic.zKernel.KernelUseObjectZZZ;
 import basic.zKernel.KernelZZZ;
 
 /**TODO GOON 20171206: Umstellen auf einen HibernateConfigurationProvider */
-public class HibernateContextProviderSequenceAssociationXXX extends HibernateContextProviderZZZ{
+public class HibernateContextProviderSequenceAssociationXXX extends HibernateContextProviderZZZ implements IHibernateConfigurationProviderZZZ{
 	
 	
 	
@@ -121,6 +122,22 @@ public class HibernateContextProviderSequenceAssociationXXX extends HibernateCon
 				
 				return true;
 	}
+	
+	/** Wird eine zu persisierende Klasse nicht der Konfiguration übergeben, kommt es z.B. zu folgender Fehlermeldung
+	 *  Exception in thread "main" org.hibernate.MappingException: Unknown entity: use.thm.client.component.AreaCellTHM
+	 * @param cls
+	 * @return
+	 * @throws ExceptionZZZ
+	 */
+	public boolean addConfigurationAnnotatedClass(Configuration cfg, Class cls) throws ExceptionZZZ{
+		if(cls==null){
+			ExceptionZZZ ez = new ExceptionZZZ("Class-Object not passed.", iERROR_PARAMETER_MISSING, this, ReflectCodeZZZ.getMethodCurrentName());
+			throw ez;
+		}
+		cfg.addAnnotatedClass(cls);
+		return true;
+	}
+	
 	@Override
 	public Session declareSessionHibernateIntercepted(SessionFactoryImpl sf) {
 		// TODO Auto-generated method stub
@@ -131,5 +148,26 @@ public class HibernateContextProviderSequenceAssociationXXX extends HibernateCon
 	public boolean declareConfigurationHibernateEvent(Configuration cfg) {
 		// TODO Auto-generated method stub
 		return false;
+	}
+	public boolean fillConfigurationGlobal() throws ExceptionZZZ {
+		// TODO Auto-generated method stub
+		return false;
+	}
+	public boolean fillConfigurationLocalDb() throws ExceptionZZZ {
+		// TODO Auto-generated method stub
+		return false;
+	}
+	public boolean fillConfigurationMapping() throws ExceptionZZZ {
+		// TODO Auto-generated method stub
+		return false;
+	}
+	public boolean addConfigurationAnnotatedClass(Class cls)
+			throws ExceptionZZZ {
+		// TODO Auto-generated method stub
+		return false;
+	}
+	public boolean addConfigurationClass(Class cls) throws ExceptionZZZ {
+		// TODO Auto-generated method stub
+				return false;
 	}
 }

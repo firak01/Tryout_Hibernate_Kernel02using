@@ -5,6 +5,7 @@ import org.hibernate.cfg.Configuration;
 import org.hibernate.internal.SessionFactoryImpl;
 
 import basic.zBasic.ExceptionZZZ;
+import basic.zBasic.ReflectCodeZZZ;
 import basic.zBasic.persistence.hibernate.HibernateContextProviderZZZ;
 import basic.zKernel.KernelZZZ;
 import debug.thm.persistence.model.association002.AssociationTargetTesterAutoKey;
@@ -91,6 +92,22 @@ public class HibernateContextProviderAssociationOneToOneWithTableXXX extends Hib
 				
 				return true;
 	}
+	
+	/** Wird eine zu persisierende Klasse nicht der Konfiguration übergeben, kommt es z.B. zu folgender Fehlermeldung
+	 *  Exception in thread "main" org.hibernate.MappingException: Unknown entity: use.thm.client.component.AreaCellTHM
+	 * @param cls
+	 * @return
+	 * @throws ExceptionZZZ
+	 */
+	public boolean addConfigurationAnnotatedClass(Configuration cfg, Class cls) throws ExceptionZZZ{
+		if(cls==null){
+			ExceptionZZZ ez = new ExceptionZZZ("Class-Object not passed.", iERROR_PARAMETER_MISSING, this, ReflectCodeZZZ.getMethodCurrentName());
+			throw ez;
+		}
+		cfg.addAnnotatedClass(cls);
+		return true;
+	}
+	
 	@Override
 	public Session declareSessionHibernateIntercepted(SessionFactoryImpl sf) {
 		// TODO Auto-generated method stub
