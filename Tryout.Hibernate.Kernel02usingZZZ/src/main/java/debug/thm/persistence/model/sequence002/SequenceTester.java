@@ -26,7 +26,7 @@ import basic.persistence.model.IOptimisticLocking;
  *Anders las mit HibernateSessions habe ich das so nicht hinbekomen, obwohl ich die Datenbank schon zuvor erstellt hatte und auch die Tabellen so gweählt hatte wie SQLITE sie automatisch erstellt.
  */
 
-@Entity(name="SquenceTester002") //Merke @Entiy muss eindeutig im ganzen Projekt sein
+@Entity(name="SequenceTester002") //Merke @Entiy muss eindeutig im ganzen Projekt sein
 @Access(AccessType.PROPERTY)
 @Table(name="SEQUENCETESTER")
 public class SequenceTester implements Serializable, IOptimisticLocking{
@@ -34,7 +34,8 @@ public class SequenceTester implements Serializable, IOptimisticLocking{
 
 	private String sDummy;
 
-	private int iMyTestSequence;
+	//private int iMyTestSequence;
+	private Integer intMyTestSequence = new Integer(0);
 	
 	//Der Default Contruktor wird für JPA - Abfragen wohl benötigt
 	 public SequenceTester(){
@@ -95,10 +96,10 @@ public class SequenceTester implements Serializable, IOptimisticLocking{
 	 //Nun wieder Fehler , das die Tabelle SEQUENCETESTER nicht vorhanden sei, obwohl die extra erstellt wurde.
 	 @GeneratedValue(generator="lidG002")
 	 @Column(name="TESTID_INCREMENTIERT", nullable=false, unique=true, columnDefinition="INTEGER NOT NULL UNIQUE  DEFAULT 1") 	 
-	 public int getTest(){
-		 return this.iMyTestSequence;
+	 public Integer getTest(){
+		 return this.intMyTestSequence;
 	 }
-	 public void setTest(int iLid){
-		 this.iMyTestSequence = iLid;
+	 public void setTest(Integer intLid){
+		 this.intMyTestSequence = intLid;
 	 }
 }

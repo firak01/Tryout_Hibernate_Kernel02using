@@ -50,7 +50,7 @@ public class DebugJpaSequenceTestMain002 extends KernelUseObjectZZZ {
 				
 				//Vorbereiten der Wertübergabe an die Datenbank
 				//session.beginTransaction();
-				em.getTransaction().begin();
+				//em.getTransaction().begin();
 				
 				SequenceTester[] objaSequenceTester = new SequenceTester[10];
 				for(int icount = 0 ; icount <= 9; icount++){
@@ -61,17 +61,27 @@ public class DebugJpaSequenceTestMain002 extends KernelUseObjectZZZ {
 				
 				for(int icount = 0 ; icount <= 9; icount++){
 					SequenceTester objSequenceTester = 	objaSequenceTester[icount];
+					objSequenceTester.setDummyString("Test"+icount);
 					//session.save(objSequenceTester);
+					em.getTransaction().begin();
+					
 					em.persist(objSequenceTester);
 					System.out.println("Objekt gespeichert: " + icount);
+					
+					em.flush();
+					em.getTransaction().commit();
+					System.out.println("commit erfolgt");
 				}
 				
 				
 				//session.getTransaction().commit();				
 				//session.close();
-				
+				//em.flush();
+				//em.getTransaction().commit();
+				//System.out.println("commit erfolgt");
+
 				em.close();				
-				System.out.println("commit erfolgt");
+				
 			
 			} catch (ExceptionZZZ e) {
 				// TODO Auto-generated catch block
