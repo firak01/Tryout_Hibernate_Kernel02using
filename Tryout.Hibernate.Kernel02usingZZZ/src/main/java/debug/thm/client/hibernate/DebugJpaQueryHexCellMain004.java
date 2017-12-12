@@ -17,13 +17,14 @@ public class DebugJpaQueryHexCellMain004 {
 	public static void main(String[] args) {
 		HibernateContextProviderSingletonTHM objContextHibernate;
 		try {
-			//objContextHibernate = new HibernateContextProviderSingletonTHM();
 			objContextHibernate = HibernateContextProviderSingletonTHM.getInstance();
 		
 		//TEST: SQL ABFRAGE...
-		//Erzeuge den Entity Manager als Ausgangspunkt für die Abfragen. !!! Damit Hibernate mit JPA funktioniert, braucht man die Datei META-INF\persistence.xml. Darin wird die persistence-unit angegeben.		
+		//Erzeuge den Entity Manager als Ausgangspunkt für die Abfragen. !!! Damit Hibernate mit JPA funktioniert, braucht man die Datei META-INF\persistence.xml. Darin wird die persistence-unit angegeben.
+		//Desweiteren müssen für die Verwendung des EntityManagers alle Konfiurtionen in der Datei hibernate.cfg.xml hinterlegt werden.
 		EntityManager em = objContextHibernate.getEntityManager("TileHexMap03");
-		Query objQuery = em.createQuery("SELECT MAX(c.id.sMapX) FROM HexCell c"); //Voraussetzung, das so überhaupt ein Resultset zurückgeliefert wird, ist, das AreaType als BLOB gespeichert wird.
+		Query objQuery = em.createQuery("SELECT MAX(c.id.mapX) FROM HexCell c"); //Voraussetzung, das so überhaupt ein Resultset zurückgeliefert wird, ist, das AreaType als BLOB gespeichert wird.
+		
 		//NEIN, keine Property Query objQuery = em.createQuery("SELECT c.getMapX FROM HexCell c");
 		//Query objQuery = em.createQuery("SELECT c.id FROM HexCell c");  //Kein Fehler aber nur mit BLOB bei AreaType Enumeration, gibt es Ergebnis
 		//Query objQuery = em.createQuery("SELECT c FROM HexCell c");
@@ -41,7 +42,7 @@ public class DebugJpaQueryHexCellMain004 {
 		CellId objId = new CellId("EINS", "29","9");
 		Object objResultFind = em.find(HexCell.class, objId);
 		if(objResultFind==null){
-			System.out.println("Kein Objekt gefunden.");
+			System.out.println("Kein Objekt an der Stelle gefunden.");
 		}else{
 			System.out.println("objFound.class: " +  objResultFind.getClass().getName());
 			AreaCell objCellFound = (AreaCell) objResultFind;

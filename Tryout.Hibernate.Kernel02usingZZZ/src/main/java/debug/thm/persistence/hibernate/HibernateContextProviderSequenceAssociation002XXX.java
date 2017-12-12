@@ -15,7 +15,7 @@ import basic.zKernel.KernelZZZ;
 //import debug.thm.persistence.model.association001.AssociationTester;
 import debug.thm.persistence.model.sequence002.SequenceTester;
 
-/**TODO GOON 20171206: Umstellen auf einen HibernateConfigurationProvider */
+/**20171206: Umstellung auf einen HibernateConfigurationProvider */
 public class HibernateContextProviderSequenceAssociation002XXX extends HibernateContextProviderZZZ{
 	
 //	//Über die EntityManagerFactory erstellte EntityManager werden in dieser Hashmap verwaltet: hm("Name des Schemas/der Datenbank") = objEntityManager;
@@ -60,6 +60,4 @@ public class HibernateContextProviderSequenceAssociation002XXX extends Hibernate
 		// TODO Auto-generated method stub
 		return false;
 	}
-
-	
 }

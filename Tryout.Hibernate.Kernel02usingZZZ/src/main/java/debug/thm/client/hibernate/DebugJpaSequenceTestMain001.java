@@ -35,14 +35,10 @@ public class DebugJpaSequenceTestMain001 extends KernelUseObjectZZZ {
 				if(bDbExists){
 					System.out.println("Datenbank existiert als Datei.");
 					objContextHibernate.getConfiguration().setProperty("hibernate.hbm2ddl.auto", "update");  //! Jetzt erst wird jede Tabelle über den Anwendungsstart hinaus gepseichert.				
-								
-					
 				}else{
 					//Fall: Datenbank existiert noch nicht
 					System.out.println("Datenbank existiert nicht als Datei");
 					objContextHibernate.getConfiguration().setProperty("hibernate.hbm2ddl.auto", "create");  //! Damit wird die Datenbank und sogar die Tabellen darin automatisch erstellt, aber: Sie wird am Anwendungsende geleert.
-				
-		
 				}//end if bDbExists
 				
 				Session session = objContextHibernate.getSession();

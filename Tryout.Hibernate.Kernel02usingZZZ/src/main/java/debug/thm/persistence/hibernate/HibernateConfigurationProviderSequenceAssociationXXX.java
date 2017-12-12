@@ -2,7 +2,10 @@ package debug.thm.persistence.hibernate;
 
 import org.hibernate.cfg.Configuration;
 
-import debug.thm.persistence.model.sequence002.SequenceTester;
+import debug.thm.persistence.model.association001.AssociationTargetTester;
+import debug.thm.persistence.model.association001.AssociationTargetTesterAutoKey;
+import debug.thm.persistence.model.association001.AssociationTester;
+import debug.thm.persistence.model.sequence001.SequenceTester;
 import use.thm.persistence.model.AreaCellLand;
 import use.thm.persistence.model.AreaCellOcean;
 import use.thm.persistence.model.Defaulttext;
@@ -16,8 +19,8 @@ import basic.zBasic.ExceptionZZZ;
 import basic.zBasic.persistence.hibernate.HibernateConfigurationProviderZZZ;
 import basic.zBasic.persistence.interfaces.IHibernateConfigurationProviderZZZ;
 
-public class HibernateConfigurationProviderSequenceAssociation002XXX extends HibernateConfigurationProviderZZZ {
-    public HibernateConfigurationProviderSequenceAssociation002XXX() throws ExceptionZZZ{
+public class HibernateConfigurationProviderSequenceAssociationXXX extends HibernateConfigurationProviderZZZ {
+    public HibernateConfigurationProviderSequenceAssociationXXX() throws ExceptionZZZ{
     	super();
     }
 	
@@ -67,7 +70,7 @@ create-drop: drop the schema when the SessionFactory is closed explicitly, typic
 	@Override
 	public boolean fillConfigurationLocalDb() throws ExceptionZZZ {
 		this.getConfiguration().setProperty("hibernate.connection.driver_class", "org.sqlite.JDBC");
-		this.getConfiguration().setProperty("hibernate.connection.url", "jdbc:sqlite:c:\\server\\SQLite\\DebugSequenceAssociation002Tester.sqlite");
+		this.getConfiguration().setProperty("hibernate.connection.url", "jdbc:sqlite:c:\\server\\SQLite\\DebugSequenceAssociationTester.sqlite");
 		return true;
 	}
 
@@ -79,6 +82,11 @@ create-drop: drop the schema when the SessionFactory is closed explicitly, typic
 		//Merke: Wird eine Klasse ohne @Entity hinzugefügt, gibt es folgende Fehlermeldung: Exception in thread "main" org.hibernate.AnnotationException: No identifier specified for entity: use.thm.client.component.AreaCellTHM
 		bReturn = addConfigurationAnnotatedClass(SequenceTester.class);
 		
+		//++++++++++++
+		bReturn = addConfigurationAnnotatedClass(AssociationTester.class);
+		bReturn = addConfigurationAnnotatedClass(AssociationTargetTester.class);
+		bReturn = addConfigurationAnnotatedClass(AssociationTargetTesterAutoKey.class);
+			
 		return bReturn;
 	}
 }
