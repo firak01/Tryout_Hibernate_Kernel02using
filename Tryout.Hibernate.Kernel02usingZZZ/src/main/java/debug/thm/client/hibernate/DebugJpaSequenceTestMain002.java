@@ -2,6 +2,8 @@ package debug.thm.client.hibernate;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
+import javax.persistence.EntityTransaction;
+import javax.transaction.Transaction;
 
 import org.hibernate.Session;
 
@@ -16,7 +18,8 @@ import debug.thm.persistence.model.sequence002.SequenceTester;
 /**Anders als in der 001er Version wird hier der EntityManager verwendet.
 * Ziel ist es trotzdem den KeyGenarator aus Hibernate weiter nutzen zu können.
 * TODO GOON 20171212: Warum funktioniert das mit dem EntityManager nicht... 
-*                     Fehlt ggfs. ein von mir programmierter Transaction Manager, oder geht das nur unter einem J2EE Server wei JBoss
+*                     Zwar wird PersistListenerTHM.onPersist() aufgerufen, aber nix wirklich in die Datenbank geschrieben.
+*                     Fehlt ggfs. ein von mir programmierter Transaction Manager, oder geht das nur unter einem J2EE Server wie JBoss
 *  
 * @author Fritz Lindhauer
 *
@@ -47,15 +50,18 @@ public class DebugJpaSequenceTestMain002 extends KernelUseObjectZZZ {
 					objContextHibernate.getConfiguration().setProperty("hibernate.hbm2ddl.auto", "create");  //! Damit wird die Datenbank und sogar die Tabellen darin automatisch erstellt, aber: Sie wird am Anwendungsende geleert.						
 				}//end if bDbExists
 				
-				Session session = objContextHibernate.getSession();
+//				Session session = objContextHibernate.getSession();
 				
 				//JPA Weg über den EntityManager, funktioniert aber nicht. Fehlt mir etwa der Transaction-Manager oder so?
-				//String sSchemaName = "SequenceAssociation002";//das kommt aus META-INF\persistence.xml
-				//EntityManager em = objContextHibernate.getEntityManager(sSchemaName);
+				String sSchemaName = "SequenceAssociation002";//das kommt aus META-INF\persistence.xml
+				EntityManager em = objContextHibernate.getEntityManager(sSchemaName);
 				
 				//Vorbereiten der Wertübergabe an die Datenbank
-				session.beginTransaction();
-//				em.getTransaction().begin();
+//				session.beginTransaction();
+				//das funktioniert nicht em.getTransaction().begin();
+				EntityTransaction tx = em.getTransaction();
+				tx.begin();
+				
 				
 				SequenceTester[] objaSequenceTester = new SequenceTester[10];
 				for(int icount = 0 ; icount <= 9; icount++){
@@ -67,9 +73,9 @@ public class DebugJpaSequenceTestMain002 extends KernelUseObjectZZZ {
 				for(int icount = 0 ; icount <= 9; icount++){
 					SequenceTester objSequenceTester = 	objaSequenceTester[icount];
 					objSequenceTester.setDummyString("Test"+icount);
-					session.save(objSequenceTester);
+//					session.save(objSequenceTester);
 					//em.getTransaction().begin();					
-					//em.persist(objSequenceTester);//erst persist dann flush soll der korrekte Weg sein  
+					em.persist(objSequenceTester);//erst persist dann flush soll der korrekte Weg sein  
 					System.out.println("Objekt gespeichert(?): " + icount);					
 					//em.flush();
 					//em.getTransaction().commit();
@@ -77,14 +83,20 @@ public class DebugJpaSequenceTestMain002 extends KernelUseObjectZZZ {
 				}
 				
 				
-			session.getTransaction().commit();				
-			session.close();
-			System.out.println("commit erfolgt. Erfolgreich(?)");
+//			session.getTransaction().commit();				
+//			session.close();
+//			System.out.println("commit erfolgt. Erfolgreich(?)");
 			
 //				em.flush();
 //				em.getTransaction().commit();
 //				em.close();
-//				System.out.println("commit erfolgt. Erfolgreich(?)");															
+//				System.out.println("commit erfolgt. Erfolgreich(?)");
+				
+				em.flush();
+				tx.commit();
+			
+				em.close();
+				System.out.println("commit erfolgt. Erfolgreich(?)");
 			} catch (ExceptionZZZ e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
