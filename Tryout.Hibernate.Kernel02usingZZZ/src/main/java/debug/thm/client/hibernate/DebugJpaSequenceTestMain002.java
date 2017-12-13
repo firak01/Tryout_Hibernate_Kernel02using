@@ -49,13 +49,13 @@ public class DebugJpaSequenceTestMain002 extends KernelUseObjectZZZ {
 				
 				Session session = objContextHibernate.getSession();
 				
-				//JPA Weg über den EntityManager, funktioniert aber nicht
-//				String sSchemaName = "SequenceAssociation002";//das kommt aus META-INF\persistence.xml
-//				EntityManager em = objContextHibernate.getEntityManager(sSchemaName);
+				//JPA Weg über den EntityManager, funktioniert aber nicht. Fehlt mir etwa der Transaction-Manager oder so?
+				//String sSchemaName = "SequenceAssociation002";//das kommt aus META-INF\persistence.xml
+				//EntityManager em = objContextHibernate.getEntityManager(sSchemaName);
 				
 				//Vorbereiten der Wertübergabe an die Datenbank
 				session.beginTransaction();
-				//em.getTransaction().begin();
+//				em.getTransaction().begin();
 				
 				SequenceTester[] objaSequenceTester = new SequenceTester[10];
 				for(int icount = 0 ; icount <= 9; icount++){
@@ -68,27 +68,23 @@ public class DebugJpaSequenceTestMain002 extends KernelUseObjectZZZ {
 					SequenceTester objSequenceTester = 	objaSequenceTester[icount];
 					objSequenceTester.setDummyString("Test"+icount);
 					session.save(objSequenceTester);
-//					em.getTransaction().begin();
-//					
-//					em.persist(objSequenceTester);//erst persist dann flush soll der korrekte weg sein  
-//					System.out.println("Objekt gespeichert: " + icount);
-//					
-//					em.flush();
-//					em.getTransaction().commit();
-//					System.out.println("commit erfolgt");
+					//em.getTransaction().begin();					
+					//em.persist(objSequenceTester);//erst persist dann flush soll der korrekte Weg sein  
+					System.out.println("Objekt gespeichert(?): " + icount);					
+					//em.flush();
+					//em.getTransaction().commit();
+					//System.out.println("commit erfolgt. Erfolgreich(?)");
 				}
 				
 				
 			session.getTransaction().commit();				
 			session.close();
+			System.out.println("commit erfolgt. Erfolgreich(?)");
+			
 //				em.flush();
 //				em.getTransaction().commit();
 //				em.close();
-			System.out.println("commit erfolgt");
-
-								
-				
-			
+//				System.out.println("commit erfolgt. Erfolgreich(?)");															
 			} catch (ExceptionZZZ e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -105,9 +101,7 @@ public class DebugJpaSequenceTestMain002 extends KernelUseObjectZZZ {
 		public static void main(String[] args) {
 			DebugJpaSequenceTestMain002 objMain = new DebugJpaSequenceTestMain002();
 			objMain.doit();		
-		}
-			
-	
+		}				
 	}//end class
 
 	
