@@ -24,8 +24,7 @@ import debug.thm.persistence.model.association003.AssociationTester;
 public class DebugJpaAssociationOneToManyWithTableTestMain001 extends KernelUseObjectZZZ {
 	public static void main(String[] args) {
 		DebugJpaAssociationOneToManyWithTableTestMain001 objMain = new DebugJpaAssociationOneToManyWithTableTestMain001();
-		objMain.createInitial();		
-		
+		objMain.createInitial();				
 		objMain.readitl();				
 	}
 	
@@ -49,15 +48,11 @@ public class DebugJpaAssociationOneToManyWithTableTestMain001 extends KernelUseO
 			boolean bDbExists = SQLiteUtilZZZ.databaseFileExists(objContextHibernate);											
 			if(bDbExists){
 				System.out.println("Datenbank existiert als Datei.");
-				objContextHibernate.getConfiguration().setProperty("hibernate.hbm2ddl.auto", "update");  //! Jetzt erst wird jede Tabelle über den Anwendungsstart hinaus gepseichert.				
-							
-				
+				objContextHibernate.getConfiguration().setProperty("hibernate.hbm2ddl.auto", "update");  //! Jetzt erst wird jede Tabelle über den Anwendungsstart hinaus gepseichert.															
 			}else{
 				//Fall: Datenbank existiert noch nicht
 				System.out.println("Datenbank existiert nicht als Datei");
-				objContextHibernate.getConfiguration().setProperty("hibernate.hbm2ddl.auto", "create");  //! Damit wird die Datenbank und sogar die Tabellen darin automatisch erstellt, aber: Sie wird am Anwendungsende geleert.
-			
-	            
+				objContextHibernate.getConfiguration().setProperty("hibernate.hbm2ddl.auto", "create");  //! Damit wird die Datenbank und sogar die Tabellen darin automatisch erstellt, aber: Sie wird am Anwendungsende geleert.				            
 			}//end if bDbExists
 			
 			Session session = objContextHibernate.getSession();
@@ -151,8 +146,7 @@ public class DebugJpaAssociationOneToManyWithTableTestMain001 extends KernelUseO
 			if(bDbExists){
 				System.out.println("Datenbank existiert als Datei.");
 				objContextHibernate.getConfiguration().setProperty("hibernate.hbm2ddl.auto", "update");  //! Jetzt erst wird jede Tabelle über den Anwendungsstart hinaus gepseichert.				
-							
-				
+											
 			}else{
 				//Fall: Datenbank existiert noch nicht
 				System.out.println("Datenbank existiert nicht als Datei");
@@ -160,8 +154,6 @@ public class DebugJpaAssociationOneToManyWithTableTestMain001 extends KernelUseO
 			
 				break main;
 			}//end if bDbExists
-			
-			Session session = objContextHibernate.getSession();
 			
 			AssociationTesterDao objTesterDao = new AssociationTesterDao(objContextHibernate);
 			
@@ -184,10 +176,7 @@ public class DebugJpaAssociationOneToManyWithTableTestMain001 extends KernelUseO
 				for(AssociationTargetTesterAutoKey objTargetAutoKey : objsetTargetAutoKey){
 					System.out.println("Identifikationsstring: " + objTargetAutoKey.getDummyString());
 				}
-			}
-			
-			session.close();
-			
+			}			
 		
 		} catch (ExceptionZZZ e) {
 			// TODO Auto-generated catch block

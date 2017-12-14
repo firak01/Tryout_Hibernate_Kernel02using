@@ -37,7 +37,7 @@ import basic.zBasic.util.datatype.string.StringZZZ;
 import basic.zKernel.KernelUseObjectZZZ;
 import basic.zKernel.KernelZZZ;
 
-/**TODO GOON 20171206: Umstellen auf einen HibernateConfigurationProvider */
+/**20171213: Umgestellt auf einen HibernateConfigurationProvider */
 public class HibernateContextProviderSequenceAssociationXXX extends HibernateContextProviderZZZ{
 
 //	//Über die EntityManagerFactory erstellte EntityManager werden in dieser Hashmap verwaltet: hm("Name des Schemas/der Datenbank") = objEntityManager;

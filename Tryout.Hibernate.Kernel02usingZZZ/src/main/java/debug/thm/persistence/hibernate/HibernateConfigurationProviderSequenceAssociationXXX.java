@@ -40,10 +40,6 @@ public class HibernateConfigurationProviderSequenceAssociationXXX extends Hibern
 		//TODO: Die hier verwendeten Werte aus der Kernel-Konfiguration auslesen.
 		//Programmatisch das erstellen, das in der hibernate.cfg.xml Datei beschrieben steht.
 		//Merke: Irgendwie funktioniert es nicht die Werte in der hibernate.cfg.xml Datei zu überschreiben.
- 		//		 Darum muss z.B. hibernate.hbm2ddl.auto in der Konfigurationdatei auskommentiert werden, sonst ziehen hier die Änderungen nicht.
-		//TODO: Die hier verwendeten Werte aus der Kernel-Konfiguration auslesen.
-		//Programmatisch das erstellen, das in der hibernate.cfg.xml Datei beschrieben steht.
-		//Merke: Irgendwie funktioniert es nicht die Werte in der hibernate.cfg.xml Datei zu überschreiben.
  		//			Darum muss z.B. hibernate.hbm2ddl.auto in der Konfigurationdatei auskommentiert werden, sonst ziehen hier die Änderungen nicht.
 		this.getConfiguration().setProperty("hiberate.show_sql", "true");
 		this.getConfiguration().setProperty("hiberate.format_sql", "true");

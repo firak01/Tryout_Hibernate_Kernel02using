@@ -13,6 +13,7 @@ import use.thm.persistence.model.AreaCellType;
 import use.thm.persistence.model.CellId;
 import use.thm.persistence.model.HexCell;
 
+/**Merke 20171214: Diese Klasse hat keine eingene HibernateConfigurationProvider, sondern nutzt den von TileHexMap und modifiziert die Datenbankposition, da sie mit einer Kopie arbeitet.*/
 public class DebugJpaQueryHexCellMain004 {
 
 	public static void main(String[] args) {
