@@ -1,6 +1,0 @@
-#Erweiterung für Events in Hibernate - Java1.7 für ServiceRegistry wohl notwendig.	
-# This allows us to use JPA-style annotation on entities, such as @PostLoad
-#our.custom.JpaAnnotationsIntegrator
-# ABER hier diesen nicht verwenden, da er intern die THM-Konfigurationen und Mappings, etc. nutzt use.thm.persistence.event.MyIntegrator
-# TODO GOON 20171214 Hier einen für das DEBUGGEN verwenden:
-debug.thm.persistence.event.MyIntegratorXXX

@@ -8,6 +8,7 @@ import basic.zBasic.ExceptionZZZ;
 import basic.zBasic.ReflectCodeZZZ;
 import basic.zBasic.persistence.hibernate.HibernateContextProviderZZZ;
 import basic.zBasic.persistence.interfaces.IHibernateConfigurationProviderZZZ;
+import basic.zBasic.persistence.interfaces.IHibernateListenerProviderZZZ;
 import basic.zKernel.KernelZZZ;
 import debug.thm.persistence.model.association003.AssociationTargetTesterAutoKey;
 import debug.thm.persistence.model.association003.AssociationTester;
@@ -42,6 +43,18 @@ public class HibernateContextProviderAssociationOneToManyWithTableXXX extends Hi
 		if(objReturn==null){
 			objReturn = new HibernateConfigurationProviderAssociationOneToManyWithTablesXXX();
 			this.setConfigurationProviderObject(objReturn);
+		}
+		return objReturn;
+	}
+	
+	@Override
+	//Hier wird dann das spezielle Listenerobjekt, für die Spezielle Konfiguration verwendet.
+	//Merke: Es werden alle in META-INF/services/org.hibernate.integrator.spi.Integrator definierten Klassen ausgeführt.
+	public IHibernateListenerProviderZZZ getListenerProviderObject() throws ExceptionZZZ {
+		IHibernateListenerProviderZZZ objReturn = super.getListenerProviderObject(); //nutze hier die "Speicherung in der Elternklasse"		
+		if(objReturn==null){
+			objReturn = new HibernateListenerProviderAssociationOneToManyWithTablesXXX();
+			this.setListenerProviderObject(objReturn);
 		}
 		return objReturn;
 	}

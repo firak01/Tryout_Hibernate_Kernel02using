@@ -32,6 +32,7 @@ public class MyIntegratorXXX implements Integrator, IKernelUserZZZ {
             final EventListenerRegistry eventListenerRegistry = serviceRegistry.getService( EventListenerRegistry.class );
 
             //Wird nicht ausgeführt, weder bei session.save noch bei session.update
+            System.out.println("XXX In MyIntegratorXXX.java");
             
             //IM DEBUGGEN RAUSNEHMEN. TODO GOON 20171214: Durch einfache Klassen ersetzen, die lediglich system.out Ausgaben machen.
             //PersistListenerTHM listenerPersist = new PersistListenerTHM(); //Funktioniert wahrscheinlich nur unter JPA. Mit Hibernate session.save(xxx) wird das nicht ausgeführt.
@@ -62,7 +63,8 @@ public class MyIntegratorXXX implements Integrator, IKernelUserZZZ {
         public void disintegrate(SessionFactoryImplementor arg0, SessionFactoryServiceRegistry arg1) {        
         }
 
-        public void integrate(MetadataImplementor arg0,SessionFactoryImplementor arg1, SessionFactoryServiceRegistry arg2) {        
+        public void integrate(MetadataImplementor arg0,SessionFactoryImplementor arg1, SessionFactoryServiceRegistry arg2) {    
+        	System.out.println("YYY In MyIntegratorXXX.java");
         }
 
 				
