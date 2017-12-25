@@ -107,7 +107,7 @@ public class HibernateContextProviderAssociationOneToOneWithTableXXX extends Hib
 		cfg.addAnnotatedClass(cls);
 		return true;
 	}
-	
+		
 	@Override
 	public Session declareSessionHibernateIntercepted(SessionFactoryImpl sf) {
 		// TODO Auto-generated method stub
