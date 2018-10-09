@@ -9,6 +9,7 @@ import basic.zBasic.ReflectCodeZZZ;
 import basic.zBasic.persistence.hibernate.HibernateContextProviderZZZ;
 import basic.zBasic.persistence.interfaces.IHibernateConfigurationProviderZZZ;
 import basic.zBasic.persistence.interfaces.IHibernateListenerProviderZZZ;
+import basic.zKernel.IKernelZZZ;
 import basic.zKernel.KernelZZZ;
 import debug.thm.persistence.model.association003.AssociationTargetTesterAutoKey;
 import debug.thm.persistence.model.association003.AssociationTester;
@@ -30,7 +31,7 @@ public class HibernateContextProviderAssociationOneToManyWithTableXXX extends Hi
 		super();
 	}
 
-	public HibernateContextProviderAssociationOneToManyWithTableXXX(KernelZZZ objKernel) throws ExceptionZZZ{
+	public HibernateContextProviderAssociationOneToManyWithTableXXX(IKernelZZZ objKernel) throws ExceptionZZZ{
 		super(objKernel);
 	}
 	

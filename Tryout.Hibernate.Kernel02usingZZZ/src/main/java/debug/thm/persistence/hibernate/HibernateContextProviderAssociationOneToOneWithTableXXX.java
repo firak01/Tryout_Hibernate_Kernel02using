@@ -7,6 +7,7 @@ import org.hibernate.internal.SessionFactoryImpl;
 import basic.zBasic.ExceptionZZZ;
 import basic.zBasic.ReflectCodeZZZ;
 import basic.zBasic.persistence.hibernate.HibernateContextProviderZZZ;
+import basic.zKernel.IKernelZZZ;
 import basic.zKernel.KernelZZZ;
 import debug.thm.persistence.model.association002.AssociationTargetTesterAutoKey;
 import debug.thm.persistence.model.association002.AssociationTester;
@@ -39,7 +40,7 @@ public class HibernateContextProviderAssociationOneToOneWithTableXXX extends Hib
 //			throw ez;
 //		}
 //	}
-	public HibernateContextProviderAssociationOneToOneWithTableXXX(KernelZZZ objKernel) throws ExceptionZZZ{
+	public HibernateContextProviderAssociationOneToOneWithTableXXX(IKernelZZZ objKernel) throws ExceptionZZZ{
 		super(objKernel);
 	}
 	

@@ -34,6 +34,7 @@ import basic.zBasic.persistence.hibernate.HibernateContextProviderZZZ;
 import basic.zBasic.persistence.interfaces.IHibernateConfigurationProviderZZZ;
 import basic.zBasic.util.abstractList.HashMapExtendedZZZ;
 import basic.zBasic.util.datatype.string.StringZZZ;
+import basic.zKernel.IKernelZZZ;
 import basic.zKernel.KernelUseObjectZZZ;
 import basic.zKernel.KernelZZZ;
 
@@ -55,7 +56,7 @@ public class HibernateContextProviderSequenceAssociationXXX extends HibernateCon
 		super();
 	}
 
-	public HibernateContextProviderSequenceAssociationXXX(KernelZZZ objKernel) throws ExceptionZZZ{
+	public HibernateContextProviderSequenceAssociationXXX(IKernelZZZ objKernel) throws ExceptionZZZ{
 		super(objKernel);
 	}
 	

@@ -11,6 +11,7 @@ import org.hibernate.service.spi.SessionFactoryServiceRegistry;
 
 import custom.zKernel.LogZZZ;
 import basic.zKernel.IKernelUserZZZ;
+import basic.zKernel.IKernelZZZ;
 import basic.zKernel.KernelZZZ;
 import use.thm.persistence.listener.TroopArmyListener;
 
@@ -21,7 +22,7 @@ import use.thm.persistence.listener.TroopArmyListener;
  *
  */
 public class MyIntegratorXXX implements Integrator, IKernelUserZZZ {
-	private KernelZZZ objKernel;
+	private IKernelZZZ objKernel;
 	private LogZZZ objLog; 
 	
         public void integrate(
@@ -70,10 +71,10 @@ public class MyIntegratorXXX implements Integrator, IKernelUserZZZ {
 				
 		//#######################################
 		//Methods implemented by Interface
-		public KernelZZZ getKernelObject() {
+		public IKernelZZZ getKernelObject() {
 			return this.objKernel;
 		}
-		public void setKernelObject(KernelZZZ objKernel) {
+		public void setKernelObject(IKernelZZZ objKernel) {
 			this.objKernel = objKernel;
 		}
 			

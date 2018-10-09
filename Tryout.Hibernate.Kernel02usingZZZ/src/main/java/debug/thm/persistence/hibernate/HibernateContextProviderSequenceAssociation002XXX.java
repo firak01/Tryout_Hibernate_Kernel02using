@@ -9,6 +9,7 @@ import basic.zBasic.ExceptionZZZ;
 import basic.zBasic.ReflectCodeZZZ;
 import basic.zBasic.persistence.hibernate.HibernateContextProviderZZZ;
 import basic.zBasic.persistence.interfaces.IHibernateConfigurationProviderZZZ;
+import basic.zKernel.IKernelZZZ;
 import basic.zKernel.KernelZZZ;
 //import debug.thm.persistence.model.association001.AssociationTargetTester;
 //import debug.thm.persistence.model.association001.AssociationTargetTesterAutoKey;
@@ -33,7 +34,7 @@ public class HibernateContextProviderSequenceAssociation002XXX extends Hibernate
 		super();
 	}
 
-	public HibernateContextProviderSequenceAssociation002XXX(KernelZZZ objKernel) throws ExceptionZZZ{
+	public HibernateContextProviderSequenceAssociation002XXX(IKernelZZZ objKernel) throws ExceptionZZZ{
 		super(objKernel);
 	}
 		
