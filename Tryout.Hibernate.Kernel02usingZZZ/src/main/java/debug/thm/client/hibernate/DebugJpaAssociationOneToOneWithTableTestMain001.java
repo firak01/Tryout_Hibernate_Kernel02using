@@ -58,7 +58,7 @@ public class DebugJpaAssociationOneToOneWithTableTestMain001 extends KernelUseOb
 	            
 			}//end if bDbExists
 			
-			Session session = objContextHibernate.getSession();
+			Session session = objContextHibernate.getSessionOpen();
 			
 			//Vorbereiten der Wertübergabe an die Datenbank
 			session.beginTransaction();
@@ -124,7 +124,7 @@ public class DebugJpaAssociationOneToOneWithTableTestMain001 extends KernelUseOb
 				break main;
 			}//end if bDbExists
 			
-			Session session = objContextHibernate.getSession();
+			Session session = objContextHibernate.getSessionOpen();
 			
 			AssociationTesterDao objTesterDao = new AssociationTesterDao(objContextHibernate);
 			

@@ -55,7 +55,7 @@ public class DebugJpaAssociationOneToManyWithTableTestMain001 extends KernelUseO
 				objContextHibernate.getConfiguration().setProperty("hibernate.hbm2ddl.auto", "create");  //! Damit wird die Datenbank und sogar die Tabellen darin automatisch erstellt, aber: Sie wird am Anwendungsende geleert.				            
 			}//end if bDbExists
 			
-			Session session = objContextHibernate.getSession();
+			Session session = objContextHibernate.getSessionOpen();
 			
 			//Vorbereiten der Wertübergabe an die Datenbank
 			session.beginTransaction();
